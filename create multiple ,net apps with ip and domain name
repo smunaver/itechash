@@ -1,0 +1,24 @@
+for i in 1 2 3 4 5; do
+  appname="app$i"
+  port=$((5000 + i))
+  domain=$(printf "app%02d.itechash.com" $i)
+
+  echo "Creating $appname on port $port for domain $domain..."
+
+  # Create the ASP.NET Core Web app
+  dotnet new web -o $appname
+
+  # Overwrite Program.cs with correct binding + response
+  cat << EOF > $appname/Program.cs
+var builder = WebApplication.CreateBuilder(args);
+
+builder.WebHost.UseUrls("http://192.168.0.60:$port");
+
+var app = builder.Build();
+
+app.MapGet("/", () => "Welcome to $domain running on port $port");
+
+app.Run();
+EOF
+
+done
