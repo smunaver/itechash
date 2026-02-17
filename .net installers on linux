@@ -1,0 +1,14 @@
+ apt search dotnet-sdk
+   42  apt install -y dotnet-sdk-8.0
+   43  clear
+   44  sudo apt install -y dotnet-sdk-8.0
+   45  apt search dotnet-runtine
+   46  apt search dotnet-runtime
+   47  sudo apt install -y dotnet-runtime-8.0
+   48  apt search aspnet-core
+   49  apt search aspnet-coreruntine
+   50  apt search aspnet-coreruntime
+   51  apt search aspnetcore
+   52  sudo install -y aspnetcore-runtime-8.0
+   53  sudo apt install -y aspnetcore-runtime-8.0
+   54  dotnet --info
